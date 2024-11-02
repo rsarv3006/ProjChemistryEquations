@@ -1,0 +1,8 @@
+framework module "ChemistryBackbone" {
+	header "ref.h"
+    header "ChemistryBackbone.objc.h"
+    header "Universe.objc.h"
+    header "ChemistryBackbone.h"
+
+    export *
+}
