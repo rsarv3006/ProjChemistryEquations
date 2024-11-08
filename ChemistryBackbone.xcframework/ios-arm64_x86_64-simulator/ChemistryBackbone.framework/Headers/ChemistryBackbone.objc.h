@@ -13,6 +13,7 @@
 
 @class ChemistryBackboneEquation;
 @class ChemistryBackboneEquationSection;
+@class ChemistryBackboneEquationSectionList;
 
 @interface ChemistryBackboneEquation : NSObject <goSeqRefInterface> {
 }
@@ -20,16 +21,27 @@
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
 - (nonnull instancetype)init;
-// skipped field Equation.Id with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationId
-
+@property (nonatomic) NSString* _Nonnull id_;
 @property (nonatomic) NSString* _Nonnull title;
 @property (nonatomic) NSString* _Nonnull description;
-// skipped field Equation.Filters with unsupported type: []ChemistryBackbone/ChemistryBackbone.EquationFilter
-
-// skipped field Equation.Calculation with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationCalculation
+// skipped field Equation.Filters with unsupported type: []string
 
 // skipped field Equation.FieldLabels with unsupported type: []string
 
+// skipped method Equation.Descriptor with unsupported parameter or return types
+
+- (NSString* _Nonnull)getDescription;
+// skipped method Equation.GetFieldLabels with unsupported parameter or return types
+
+// skipped method Equation.GetFilters with unsupported parameter or return types
+
+- (NSString* _Nonnull)getId;
+- (NSString* _Nonnull)getTitle;
+- (void)protoMessage;
+// skipped method Equation.ProtoReflect with unsupported parameter or return types
+
+- (void)reset;
+- (NSString* _Nonnull)string;
 @end
 
 @interface ChemistryBackboneEquationSection : NSObject <goSeqRefInterface> {
@@ -40,12 +52,46 @@
 - (nonnull instancetype)init;
 @property (nonatomic) NSString* _Nonnull id_;
 @property (nonatomic) NSString* _Nonnull name;
-// skipped field EquationSection.Equations with unsupported type: []ChemistryBackbone/ChemistryBackbone.Equation
+// skipped field EquationSection.Equations with unsupported type: []*ChemistryBackbone/ChemistryBackbone.Equation
 
+// skipped method EquationSection.Descriptor with unsupported parameter or return types
+
+// skipped method EquationSection.GetEquations with unsupported parameter or return types
+
+- (NSString* _Nonnull)getId;
+- (NSString* _Nonnull)getName;
+- (void)protoMessage;
+// skipped method EquationSection.ProtoReflect with unsupported parameter or return types
+
+- (void)reset;
+- (NSString* _Nonnull)string;
 @end
 
-// skipped const AdvancedEquations with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationFilter
+@interface ChemistryBackboneEquationSectionList : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
 
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field EquationSectionList.Sections with unsupported type: []*ChemistryBackbone/ChemistryBackbone.EquationSection
+
+// skipped method EquationSectionList.Descriptor with unsupported parameter or return types
+
+// skipped method EquationSectionList.GetSections with unsupported parameter or return types
+
+- (void)protoMessage;
+// skipped method EquationSectionList.ProtoReflect with unsupported parameter or return types
+
+- (void)reset;
+- (NSString* _Nonnull)string;
+@end
+
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneAdvancedEquations;
+/**
+ * Calculation: func(x []float64) float64 { return x[0] / x[1] },
+Calculation: func(x []float64) float64 { return x[0] * x[1] },
+Calculation: func(x []float64) float64 { return x[0] / x[1] },
+ */
 FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDENSITY_EQUATION_DESCRIPTION;
 // skipped const Density1 with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationId
 
@@ -57,8 +103,14 @@ FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDENSITY_EQUATION_DES
 @interface ChemistryBackbone : NSObject
 // skipped variable DensityEquations with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationSection
 
+// skipped variable File_ChemistryBackbone_proto with unsupported type: google.golang.org/protobuf/reflect/protoreflect.FileDescriptor
+
 @end
 
+FOUNDATION_EXPORT NSData* _Nullable ChemistryBackboneGetEquations(NSError* _Nullable* _Nullable error);
+
 FOUNDATION_EXPORT NSString* _Nonnull ChemistryBackboneGreetings(NSString* _Nullable name);
+
+FOUNDATION_EXPORT long ChemistryBackboneSimpleReturn(long x);
 
 #endif

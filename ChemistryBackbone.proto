@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "./ChemistryBackbone";
+
+package ChemistryBackbone;
+
+message EquationSection {
+  string id = 1;
+  string name = 2;
+  repeated Equation equations = 3;
+}
+
+message Equation {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  repeated string filters = 4;
+  repeated string fieldLabels = 5;
+}
+
+message EquationSectionList { repeated EquationSection sections = 1; }

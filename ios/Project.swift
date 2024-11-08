@@ -10,12 +10,17 @@ let project = Project(
             bundleId: "io.tuist.ChemistryEquations",
             infoPlist: .extendingDefault(
                 with: [
-                    "UILaunchStoryboardName": "LaunchScreen.storyboard",
+                    "UILaunchStoryboardName": "LaunchScreen.storyboard"
                 ]
             ),
             sources: ["ChemistryEquations/Sources/**"],
             resources: ["ChemistryEquations/Resources/**"],
-            dependencies: []
+            dependencies: [
+                .xcframework(
+                    path: "../ChemistryBackbone.xcframework", status: .required, condition: .none
+                ),
+                .external(name: "SwiftProtobuf"),
+            ]
         ),
         .target(
             name: "ChemistryEquationsTests",

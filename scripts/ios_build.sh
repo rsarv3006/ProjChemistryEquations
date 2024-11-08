@@ -1,3 +1,7 @@
-#!/bin/bash
+gomobile bind -target=ios -ldflags="-X main.SwiftProtoFiles=$(ls *.pb.swift)" ./ChemistryBackbone
 
-gomobile bind -target=ios ./ChemistryBackbone
+cd ios
+
+tuist generate
+
+cd ..

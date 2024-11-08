@@ -12,3 +12,6 @@
    This will automatically include the Hello.xcframework into the project.
 
 4. Build.
+
+### Generate something? I guess??
+ protoc --go_out=. --go_opt=paths=source_relative ChemistryBackbone.proto
