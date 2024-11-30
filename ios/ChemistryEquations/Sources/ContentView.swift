@@ -2,7 +2,7 @@ import SwiftUI
 import ChemistryBackbone
 
 func getEquationsFromProto(data: Data) -> ChemistryBackbone_EquationSectionList? {
-    return try? ChemistryBackbone_EquationSectionList(serializedData: data)
+    return try? ChemistryBackbone_EquationSectionList(serializedBytes: data)
 }
 
 func getEquationSections() -> [ChemistryBackbone_EquationSection]? {
