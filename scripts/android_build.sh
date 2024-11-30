@@ -1,1 +1,1 @@
-gomobile bind -o app/ChemistryBackbone.aar ./ChemistryBackbone
+gomobile bind -target=android -o app/ChemistryBackbone.aar ./ChemistryBackbone
