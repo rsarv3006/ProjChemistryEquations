@@ -20,6 +20,7 @@ let project = Project(
                     path: "../ChemistryBackbone.xcframework", status: .required, condition: .none
                 ),
                 .external(name: "SwiftProtobuf"),
+                .external(name: "LaTeXSwiftUI"),
             ]
         ),
         .target(

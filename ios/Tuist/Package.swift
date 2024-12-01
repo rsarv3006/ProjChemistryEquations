@@ -9,7 +9,8 @@ import PackageDescription
         // Default is .staticFramework
         // productTypes: ["Alamofire": .framework,]
         productTypes: [
-            "SwiftProtobuf": .framework
+            "SwiftProtobuf": .framework,
+            "LaTeXSwiftUI": .framework,
         ]
     )
 #endif
@@ -17,6 +18,7 @@ import PackageDescription
 let package = Package(
     name: "ChemistryEquations",
     dependencies: [
-        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.28.0")
+        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.28.0"),
+        .package(url: "https://github.com/colinc86/LaTeXSwiftUI.git", from: "1.3.2"),
     ]
 )

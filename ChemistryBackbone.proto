@@ -19,3 +19,12 @@ message Equation {
 }
 
 message EquationSectionList { repeated EquationSection sections = 1; }
+
+message EquationCalculationRequest {
+  string id = 1;
+  repeated double values = 2;
+}
+
+message EquationCalculationResponse {
+  double value = 1;
+}

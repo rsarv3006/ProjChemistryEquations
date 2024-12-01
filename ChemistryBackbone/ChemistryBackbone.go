@@ -1,43 +1,48 @@
 package ChemistryBackbone
 
 import (
-	"fmt"
+	"errors"
 
 	"google.golang.org/protobuf/proto"
 )
 
-func Greetings(name string) string {
-	return fmt.Sprintf("Hello, %s!", name)
-}
-
-func SimpleReturn(x int) int { return x }
-
 const AdvancedEquations = "AdvancedEquations"
 
-type EquationId string
-
 const (
-	Density1 EquationId = "Density1"
-	Density2 EquationId = "Density2"
-	Density3 EquationId = "Density3"
+	Density1 string = "Density1"
+	Density2 string = "Density2"
+	Density3 string = "Density3"
 )
-
-// type EquationSection struct {
-// 	Id        string
-// 	Name      string
-// 	Equations []Equation
-// }
 
 type EquationCalculation func([]float64) float64
 
-// type Equation struct {
-// 	Id          string
-// 	Title       string
-// 	Description string
-// 	Filters     []EquationFilter
-// 	Calculation EquationCalculation
-// 	FieldLabels []string
-// }
+func CalculateEquation(bytes []byte) ([]byte, error) {
+	request := &EquationCalculationRequest{}
+	err := proto.Unmarshal(bytes, request)
+
+	if err != nil {
+		return nil, err
+	}
+
+	calculatedValue := 0.0
+
+	switch request.Id {
+	case Density1:
+		calculatedValue = CalculateDensity1(request.Values)
+	case Density2:
+		calculatedValue = CalculateDensity2(request.Values)
+	case Density3:
+		calculatedValue = CalculateDensity3(request.Values)
+	default:
+		return nil, errors.New("Equation not found")
+	}
+
+	response := &EquationCalculationResponse{
+		Value: calculatedValue,
+	}
+
+	return proto.Marshal(response)
+}
 
 func GetEquations() ([]byte, error) {
 	equationSections := &EquationSectionList{
@@ -51,7 +56,7 @@ var DensityEquations = EquationSection{
 	Id:   "Density",
 	Name: "Density",
 	Equations: []*Equation{
-		&Equation{
+		{
 			Id:          "Density1",
 			Title:       "ρ = m / V",
 			Description: DENSITY_EQUATION_DESCRIPTION,
@@ -62,7 +67,7 @@ var DensityEquations = EquationSection{
 				"Density:",
 			},
 		},
-		&Equation{
+		{
 			Id:          "Density2",
 			Title:       "m = ρ * V",
 			Description: DENSITY_EQUATION_DESCRIPTION,
@@ -73,7 +78,7 @@ var DensityEquations = EquationSection{
 				"Mass:",
 			},
 		},
-		&Equation{
+		{
 			Id:          "Density3",
 			Title:       "V = ρ / m",
 			Description: DENSITY_EQUATION_DESCRIPTION,
@@ -87,7 +92,19 @@ var DensityEquations = EquationSection{
 	},
 }
 
-// Calculation: func(x []float64) float64 { return x[0] / x[1] },
-// Calculation: func(x []float64) float64 { return x[0] * x[1] },
-// Calculation: func(x []float64) float64 { return x[0] / x[1] },
+func CalculateDensity1(x []float64) float64 {
+	val := x[0] / x[1]
+	return val
+}
+
+func CalculateDensity2(x []float64) float64 {
+	val := x[0] * x[1]
+	return val
+}
+
+func CalculateDensity3(x []float64) float64 {
+	val := x[0] / x[1]
+	return val
+}
+
 const DENSITY_EQUATION_DESCRIPTION = "The density of a substance is the mass of a substance divided by the volume of the substance."

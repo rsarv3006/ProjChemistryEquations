@@ -203,6 +203,104 @@ func (x *EquationSectionList) GetSections() []*EquationSection {
 	return nil
 }
 
+type EquationCalculationRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id     string    `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Values []float64 `protobuf:"fixed64,2,rep,packed,name=values,proto3" json:"values,omitempty"`
+}
+
+func (x *EquationCalculationRequest) Reset() {
+	*x = EquationCalculationRequest{}
+	mi := &file_ChemistryBackbone_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EquationCalculationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EquationCalculationRequest) ProtoMessage() {}
+
+func (x *EquationCalculationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_ChemistryBackbone_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EquationCalculationRequest.ProtoReflect.Descriptor instead.
+func (*EquationCalculationRequest) Descriptor() ([]byte, []int) {
+	return file_ChemistryBackbone_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *EquationCalculationRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *EquationCalculationRequest) GetValues() []float64 {
+	if x != nil {
+		return x.Values
+	}
+	return nil
+}
+
+type EquationCalculationResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Value float64 `protobuf:"fixed64,1,opt,name=value,proto3" json:"value,omitempty"`
+}
+
+func (x *EquationCalculationResponse) Reset() {
+	*x = EquationCalculationResponse{}
+	mi := &file_ChemistryBackbone_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EquationCalculationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EquationCalculationResponse) ProtoMessage() {}
+
+func (x *EquationCalculationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_ChemistryBackbone_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EquationCalculationResponse.ProtoReflect.Descriptor instead.
+func (*EquationCalculationResponse) Descriptor() ([]byte, []int) {
+	return file_ChemistryBackbone_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *EquationCalculationResponse) GetValue() float64 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
+}
+
 var File_ChemistryBackbone_proto protoreflect.FileDescriptor
 
 var file_ChemistryBackbone_proto_rawDesc = []byte{
@@ -230,9 +328,16 @@ var file_ChemistryBackbone_proto_rawDesc = []byte{
 	0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x22, 0x2e, 0x43, 0x68, 0x65, 0x6d, 0x69,
 	0x73, 0x74, 0x72, 0x79, 0x42, 0x61, 0x63, 0x6b, 0x62, 0x6f, 0x6e, 0x65, 0x2e, 0x45, 0x71, 0x75,
 	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x08, 0x73, 0x65,
-	0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x42, 0x15, 0x5a, 0x13, 0x2e, 0x2f, 0x43, 0x68, 0x65, 0x6d,
-	0x69, 0x73, 0x74, 0x72, 0x79, 0x42, 0x61, 0x63, 0x6b, 0x62, 0x6f, 0x6e, 0x65, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x22, 0x44, 0x0a, 0x1a, 0x45, 0x71, 0x75, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x43, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x02, 0x69, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x02,
+	0x20, 0x03, 0x28, 0x01, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0x33, 0x0a, 0x1b,
+	0x45, 0x71, 0x75, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x43, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x01, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x42, 0x15, 0x5a, 0x13, 0x2e, 0x2f, 0x43, 0x68, 0x65, 0x6d, 0x69, 0x73, 0x74, 0x72, 0x79,
+	0x42, 0x61, 0x63, 0x6b, 0x62, 0x6f, 0x6e, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -247,11 +352,13 @@ func file_ChemistryBackbone_proto_rawDescGZIP() []byte {
 	return file_ChemistryBackbone_proto_rawDescData
 }
 
-var file_ChemistryBackbone_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_ChemistryBackbone_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_ChemistryBackbone_proto_goTypes = []any{
-	(*EquationSection)(nil),     // 0: ChemistryBackbone.EquationSection
-	(*Equation)(nil),            // 1: ChemistryBackbone.Equation
-	(*EquationSectionList)(nil), // 2: ChemistryBackbone.EquationSectionList
+	(*EquationSection)(nil),             // 0: ChemistryBackbone.EquationSection
+	(*Equation)(nil),                    // 1: ChemistryBackbone.Equation
+	(*EquationSectionList)(nil),         // 2: ChemistryBackbone.EquationSectionList
+	(*EquationCalculationRequest)(nil),  // 3: ChemistryBackbone.EquationCalculationRequest
+	(*EquationCalculationResponse)(nil), // 4: ChemistryBackbone.EquationCalculationResponse
 }
 var file_ChemistryBackbone_proto_depIdxs = []int32{
 	1, // 0: ChemistryBackbone.EquationSection.equations:type_name -> ChemistryBackbone.Equation
@@ -274,7 +381,7 @@ func file_ChemistryBackbone_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_ChemistryBackbone_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

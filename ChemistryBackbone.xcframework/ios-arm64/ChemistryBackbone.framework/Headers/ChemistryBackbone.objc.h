@@ -12,6 +12,8 @@
 
 
 @class ChemistryBackboneEquation;
+@class ChemistryBackboneEquationCalculationRequest;
+@class ChemistryBackboneEquationCalculationResponse;
 @class ChemistryBackboneEquationSection;
 @class ChemistryBackboneEquationSectionList;
 
@@ -39,6 +41,44 @@
 - (NSString* _Nonnull)getTitle;
 - (void)protoMessage;
 // skipped method Equation.ProtoReflect with unsupported parameter or return types
+
+- (void)reset;
+- (NSString* _Nonnull)string;
+@end
+
+@interface ChemistryBackboneEquationCalculationRequest : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull id_;
+// skipped field EquationCalculationRequest.Values with unsupported type: []float64
+
+// skipped method EquationCalculationRequest.Descriptor with unsupported parameter or return types
+
+- (NSString* _Nonnull)getId;
+// skipped method EquationCalculationRequest.GetValues with unsupported parameter or return types
+
+- (void)protoMessage;
+// skipped method EquationCalculationRequest.ProtoReflect with unsupported parameter or return types
+
+- (void)reset;
+- (NSString* _Nonnull)string;
+@end
+
+@interface ChemistryBackboneEquationCalculationResponse : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) double value;
+// skipped method EquationCalculationResponse.Descriptor with unsupported parameter or return types
+
+- (double)getValue;
+- (void)protoMessage;
+// skipped method EquationCalculationResponse.ProtoReflect with unsupported parameter or return types
 
 - (void)reset;
 - (NSString* _Nonnull)string;
@@ -87,18 +127,10 @@
 @end
 
 FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneAdvancedEquations;
-/**
- * Calculation: func(x []float64) float64 { return x[0] / x[1] },
-Calculation: func(x []float64) float64 { return x[0] * x[1] },
-Calculation: func(x []float64) float64 { return x[0] / x[1] },
- */
 FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDENSITY_EQUATION_DESCRIPTION;
-// skipped const Density1 with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationId
-
-// skipped const Density2 with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationId
-
-// skipped const Density3 with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationId
-
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDensity1;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDensity2;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDensity3;
 
 @interface ChemistryBackbone : NSObject
 // skipped variable DensityEquations with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationSection
@@ -107,10 +139,17 @@ FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDENSITY_EQUATION_DES
 
 @end
 
+// skipped function CalculateDensity1 with unsupported parameter or return types
+
+
+// skipped function CalculateDensity2 with unsupported parameter or return types
+
+
+// skipped function CalculateDensity3 with unsupported parameter or return types
+
+
+FOUNDATION_EXPORT NSData* _Nullable ChemistryBackboneCalculateEquation(NSData* _Nullable bytes, NSError* _Nullable* _Nullable error);
+
 FOUNDATION_EXPORT NSData* _Nullable ChemistryBackboneGetEquations(NSError* _Nullable* _Nullable error);
-
-FOUNDATION_EXPORT NSString* _Nonnull ChemistryBackboneGreetings(NSString* _Nullable name);
-
-FOUNDATION_EXPORT long ChemistryBackboneSimpleReturn(long x);
 
 #endif

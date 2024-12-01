@@ -24,23 +24,9 @@ func getEquationSections() -> [ChemistryBackbone_EquationSection]? {
 }
 
 public struct ContentView: View {
-    var sections: [ChemistryBackbone_EquationSection] = []
-    public init() {
-        sections = getEquationSections() ?? []
-    }
-
     public var body: some View {
-        ForEach(sections, id: \.id) { section in
-            ForEach(section.equations, id: \.id) { equation in
-                Text(equation.title)
-            }
+        NavigationStack {
+            HomeScreen()
         }
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
