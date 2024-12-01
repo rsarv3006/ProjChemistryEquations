@@ -7,7 +7,7 @@ let project = Project(
             name: "ChemistryEquations",
             destinations: .iOS,
             product: .app,
-            bundleId: "io.tuist.ChemistryEquations",
+            bundleId: "us.rjs-app-dev.ChemistryEquations",
             infoPlist: .extendingDefault(
                 with: [
                     "UILaunchStoryboardName": "LaunchScreen.storyboard"
@@ -27,7 +27,7 @@ let project = Project(
             name: "ChemistryEquationsTests",
             destinations: .iOS,
             product: .unitTests,
-            bundleId: "io.tuist.ChemistryEquationsTests",
+            bundleId: "us.rjs-app-dev.ChemistryEquationsTests",
             infoPlist: .default,
             sources: ["ChemistryEquations/Tests/**"],
             resources: [],
