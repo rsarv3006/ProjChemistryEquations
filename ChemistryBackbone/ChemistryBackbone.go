@@ -1,8 +1,6 @@
 package ChemistryBackbone
 
 import (
-	"errors"
-
 	"google.golang.org/protobuf/proto"
 )
 
@@ -12,6 +10,19 @@ const (
 	Density1 string = "Density1"
 	Density2 string = "Density2"
 	Density3 string = "Density3"
+
+	GibbsFreeEnergy1 string = "GibbsFreeEnergy1"
+	GibbsFreeEnergy2 string = "GibbsFreeEnergy2"
+	GibbsFreeEnergy3 string = "GibbsFreeEnergy3"
+	GibbsFreeEnergy4 string = "GibbsFreeEnergy4"
+
+	Temperature1 string = "Temperature1"
+	Temperature2 string = "Temperature2"
+	Temperature3 string = "Temperature3"
+
+	Molarity1 string = "Molarity1"
+	Molarity2 string = "Molarity2"
+	Molarity3 string = "Molarity3"
 )
 
 type EquationCalculation func([]float64) float64
@@ -33,8 +44,31 @@ func CalculateEquation(bytes []byte) ([]byte, error) {
 		calculatedValue = CalculateDensity2(request.Values)
 	case Density3:
 		calculatedValue = CalculateDensity3(request.Values)
+
+	case Temperature1:
+		calculatedValue = CalculateTemperature1(request.Values)
+	case Temperature2:
+		calculatedValue = CalculateTemperature2(request.Values)
+	case Temperature3:
+		calculatedValue = CalculateTemperature3(request.Values)
+
+	case GibbsFreeEnergy1:
+		calculatedValue = CalculateGibbsFreeEnergy1(request.Values)
+	case GibbsFreeEnergy2:
+		calculatedValue = CalculateGibbsFreeEnergy2(request.Values)
+	case GibbsFreeEnergy3:
+		calculatedValue = CalculateGibbsFreeEnergy3(request.Values)
+	case GibbsFreeEnergy4:
+		calculatedValue = CalculateGibbsFreeEnergy4(request.Values)
+
+	case Molarity1:
+		calculatedValue = CalculateMolarity1(request.Values)
+	case Molarity2:
+		calculatedValue = CalculateMolarity2(request.Values)
+	case Molarity3:
+		calculatedValue = CalculateMolarity3(request.Values)
 	default:
-		return nil, errors.New("Equation not found")
+		calculatedValue = 0.0
 	}
 
 	response := &EquationCalculationResponse{
@@ -46,65 +80,13 @@ func CalculateEquation(bytes []byte) ([]byte, error) {
 
 func GetEquations() ([]byte, error) {
 	equationSections := &EquationSectionList{
-		Sections: []*EquationSection{&DensityEquations},
+		Sections: []*EquationSection{
+			&DensityEquations,
+			&TemperatureEquations,
+			&GibbsFreeEnergyEquations,
+			&MolarityEquations,
+		},
 	}
 
 	return proto.Marshal(equationSections)
 }
-
-var DensityEquations = EquationSection{
-	Id:   "Density",
-	Name: "Density",
-	Equations: []*Equation{
-		{
-			Id:          "Density1",
-			Title:       "ρ = m / V",
-			Description: DENSITY_EQUATION_DESCRIPTION,
-			Filters:     make([]string, 0),
-			FieldLabels: []string{
-				"Mass:",
-				"Volume:",
-				"Density:",
-			},
-		},
-		{
-			Id:          "Density2",
-			Title:       "m = ρ * V",
-			Description: DENSITY_EQUATION_DESCRIPTION,
-			Filters:     []string{AdvancedEquations},
-			FieldLabels: []string{
-				"Density:",
-				"Volume:",
-				"Mass:",
-			},
-		},
-		{
-			Id:          "Density3",
-			Title:       "V = ρ / m",
-			Description: DENSITY_EQUATION_DESCRIPTION,
-			Filters:     []string{AdvancedEquations},
-			FieldLabels: []string{
-				"Density:",
-				"Mass:",
-				"Volume:",
-			},
-		},
-	},
-}
-
-func CalculateDensity1(x []float64) float64 {
-	val := x[0] / x[1]
-	return val
-}
-
-func CalculateDensity2(x []float64) float64 {
-	val := x[0] * x[1]
-	return val
-}
-
-func CalculateDensity3(x []float64) float64 {
-	val := x[0] / x[1]
-	return val
-}
-
-const DENSITY_EQUATION_DESCRIPTION = "The density of a substance is the mass of a substance divided by the volume of the substance."

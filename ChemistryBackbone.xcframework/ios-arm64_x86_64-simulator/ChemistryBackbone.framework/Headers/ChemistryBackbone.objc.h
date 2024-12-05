@@ -131,11 +131,30 @@ FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDENSITY_EQUATION_DES
 FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDensity1;
 FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDensity2;
 FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDensity3;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneGIBBS_FREE_ENERGY_EQUATION_DESCRIPTION;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneGibbsFreeEnergy1;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneGibbsFreeEnergy2;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneGibbsFreeEnergy3;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneGibbsFreeEnergy4;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneMOLARITY_EQUATION_DESCRIPTION;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneMolarity1;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneMolarity2;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneMolarity3;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneTEMPERATURE_EQUATION_DESCRIPTION;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneTemperature1;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneTemperature2;
+FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneTemperature3;
 
 @interface ChemistryBackbone : NSObject
 // skipped variable DensityEquations with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationSection
 
 // skipped variable File_ChemistryBackbone_proto with unsupported type: google.golang.org/protobuf/reflect/protoreflect.FileDescriptor
+
+// skipped variable GibbsFreeEnergyEquations with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationSection
+
+// skipped variable MolarityEquations with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationSection
+
+// skipped variable TemperatureEquations with unsupported type: ChemistryBackbone/ChemistryBackbone.EquationSection
 
 @end
 
@@ -149,6 +168,36 @@ FOUNDATION_EXPORT NSString* _Nonnull const ChemistryBackboneDensity3;
 
 
 FOUNDATION_EXPORT NSData* _Nullable ChemistryBackboneCalculateEquation(NSData* _Nullable bytes, NSError* _Nullable* _Nullable error);
+
+// skipped function CalculateGibbsFreeEnergy1 with unsupported parameter or return types
+
+
+// skipped function CalculateGibbsFreeEnergy2 with unsupported parameter or return types
+
+
+// skipped function CalculateGibbsFreeEnergy3 with unsupported parameter or return types
+
+
+// skipped function CalculateGibbsFreeEnergy4 with unsupported parameter or return types
+
+
+// skipped function CalculateMolarity1 with unsupported parameter or return types
+
+
+// skipped function CalculateMolarity2 with unsupported parameter or return types
+
+
+// skipped function CalculateMolarity3 with unsupported parameter or return types
+
+
+// skipped function CalculateTemperature1 with unsupported parameter or return types
+
+
+// skipped function CalculateTemperature2 with unsupported parameter or return types
+
+
+// skipped function CalculateTemperature3 with unsupported parameter or return types
+
 
 FOUNDATION_EXPORT NSData* _Nullable ChemistryBackboneGetEquations(NSError* _Nullable* _Nullable error);
 

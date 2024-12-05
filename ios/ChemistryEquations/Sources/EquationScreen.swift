@@ -81,6 +81,7 @@ struct EquationScreen: View {
     }
     
     func calculateValue() throws -> Double {
+        print("request sent")
         var equationSend = ChemistryBackbone_EquationCalculationRequest()
         equationSend.id = equation.id
         
@@ -92,9 +93,9 @@ struct EquationScreen: View {
         let errorPointer = NSErrorPointer(nilLiteral: ())
         
         let returnValueObj = ChemistryBackboneCalculateEquation(try equationSend.serializedData(), errorPointer)
-        
+
         guard let returnValueObj else {
-            throw EquationScreenError.whoTheHellEvenKnows
+            return 0
         }
         
         let returnVal = try ChemistryBackbone_EquationCalculationResponse(serializedBytes: returnValueObj)

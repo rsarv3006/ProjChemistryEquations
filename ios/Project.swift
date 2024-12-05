@@ -1,7 +1,28 @@
 import ProjectDescription
 
+extension SettingsDictionary {
+    func setProjectVersions() -> SettingsDictionary {
+        return appleGenericVersioningSystem().merging([
+            "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor"
+        ])
+    }
+}
+
 let project = Project(
     name: "ChemistryEquations",
+    settings: Settings.settings(
+        base: SettingsDictionary().setProjectVersions(),
+        configurations: [
+            Configuration.debug(
+                name: "Debug",
+                settings: SettingsDictionary().automaticCodeSigning(devTeam: "4QGR522B9M")
+            ),
+            Configuration.release(
+                name: "Release",
+                settings: SettingsDictionary().automaticCodeSigning(devTeam: "4QGR522B9M")
+            ),
+        ], defaultSettings: .recommended()
+    ),
     targets: [
         .target(
             name: "ChemistryEquations",
@@ -10,7 +31,7 @@ let project = Project(
             bundleId: "us.rjs-app-dev.ChemistryEquations",
             infoPlist: .extendingDefault(
                 with: [
-                    "UILaunchStoryboardName": "LaunchScreen.storyboard"
+                    "UILaunchStoryboardName": "LaunchScreen"
                 ]
             ),
             sources: ["ChemistryEquations/Sources/**"],
