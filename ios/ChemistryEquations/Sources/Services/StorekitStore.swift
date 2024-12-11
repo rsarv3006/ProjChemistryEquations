@@ -1,7 +1,7 @@
 import Foundation
 import StoreKit
 
-let unlockAdvancedFunctions = "advancedEquationsUnlock"
+let unlockAdvancedFunctions = "us.rjs-app-dev.chemistry-equations.unlockadvancedequations"
 
 public enum StoreError: Error {
     case failedVerification
@@ -12,7 +12,6 @@ class StorekitStore: ObservableObject {
     
     @Published var unlockAdvancedEquationsPurchase: Product? = nil
     @Published var hasPurchasedUnlockAdvancedEquations: Bool = false
-    
     
     init() {
         updateListenerTask = listenForTransactions()
