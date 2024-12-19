@@ -20,7 +20,7 @@ var GibbsFreeEnergyEquations = EquationSection{
 			Id:          "GibbsFreeEnergy2",
 			Title:       "ΔH = ΔG + TΔS",
 			Description: GIBBS_FREE_ENERGY_EQUATION_DESCRIPTION,
-			Filters:     []string{AdvancedEquations},
+			Filters:     []string{},
 			FieldLabels: []string{
 				"Temperature:",
 				"Entropy:",
@@ -32,7 +32,7 @@ var GibbsFreeEnergyEquations = EquationSection{
 			Id:          "GibbsFreeEnergy3",
 			Title:       "T = (ΔH - ΔG) / ΔS",
 			Description: GIBBS_FREE_ENERGY_EQUATION_DESCRIPTION,
-			Filters:     []string{AdvancedEquations},
+			Filters:     []string{},
 			FieldLabels: []string{
 				"ΔH:",
 				"ΔG:",
@@ -44,7 +44,7 @@ var GibbsFreeEnergyEquations = EquationSection{
 			Id:          "GibbsFreeEnergy4",
 			Title:       "ΔS = (ΔH - ΔG) / T",
 			Description: GIBBS_FREE_ENERGY_EQUATION_DESCRIPTION,
-			Filters:     []string{AdvancedEquations},
+			Filters:     []string{},
 			FieldLabels: []string{
 				"Temperature:",
 				"ΔH:",

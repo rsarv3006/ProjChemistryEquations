@@ -29,6 +29,7 @@ let project = Project(
             destinations: .iOS,
             product: .app,
             bundleId: "us.rjs-app-dev.ChemistryEquations",
+            deploymentTargets: DeploymentTargets.iOS("16.0"),
             infoPlist: .extendingDefault(
                 with: [
                     "UILaunchStoryboardName": "LaunchScreen"
