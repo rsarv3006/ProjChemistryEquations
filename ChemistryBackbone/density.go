@@ -19,7 +19,7 @@ var DensityEquations = EquationSection{
 			Id:          "Density2",
 			Title:       "m = ρ * V",
 			Description: DENSITY_EQUATION_DESCRIPTION,
-			Filters:     []string{},
+			Filters:     []string{AdvancedEquations},
 			FieldLabels: []string{
 				"Density:",
 				"Volume:",
@@ -30,7 +30,7 @@ var DensityEquations = EquationSection{
 			Id:          "Density3",
 			Title:       "V = ρ / m",
 			Description: DENSITY_EQUATION_DESCRIPTION,
-			Filters:     []string{},
+			Filters:     []string{AdvancedEquations},
 			FieldLabels: []string{
 				"Density:",
 				"Mass:",

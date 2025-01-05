@@ -14,13 +14,29 @@
 
   ],
   "products" : [
-
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6739273603",
+      "localizations" : [
+        {
+          "description" : "Advanced Equations unlock",
+          "displayName" : "Unlock Advanced Equations",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "chemistryequations.unlockadvancedequations",
+      "referenceName" : "us.rjs-app-dev.chemistry-equations.unlockadvancedequations",
+      "type" : "NonConsumable"
+    }
   ],
   "settings" : {
     "_applicationInternalID" : "6738890420",
     "_developerTeamID" : "4QGR522B9M",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 756266673.91505396,
+    "_lastSynchronizedDate" : 757791860.92457402,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
     "_storeKitErrors" : [
       {
         "current" : null,

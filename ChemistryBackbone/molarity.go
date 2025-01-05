@@ -19,7 +19,7 @@ var MolarityEquations = EquationSection{
 			Id:          "Molarity2",
 			Title:       "moles of solute = M * liters of solution",
 			Description: MOLARITY_EQUATION_DESCRIPTION,
-			Filters:     []string{},
+			Filters:     []string{AdvancedEquations},
 			FieldLabels: []string{
 				"Moles:",
 				"liters of Solution:",
@@ -30,7 +30,7 @@ var MolarityEquations = EquationSection{
 			Id:          "Molarity3",
 			Title:       "liters of solution = M / moles of solute",
 			Description: MOLARITY_EQUATION_DESCRIPTION,
-			Filters:     []string{},
+			Filters:     []string{AdvancedEquations},
 			FieldLabels: []string{
 				"Moles of Solute:",
 				"Moles:",

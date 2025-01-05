@@ -1,7 +1,7 @@
 import Foundation
 import StoreKit
 
-let unlockAdvancedFunctions = "us.rjs-app-dev.chemistry-equations.unlockadvancedequations"
+let unlockAdvancedFunctions = "chemistryequations.unlockadvancedequations"
 
 public enum StoreError: Error {
     case failedVerification
