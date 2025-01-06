@@ -1,5 +1,7 @@
 package ChemistryBackbone
 
+import "math"
+
 var DensityEquations = EquationSection{
 	Id:   "Density",
 	Name: "Density",
@@ -42,17 +44,17 @@ var DensityEquations = EquationSection{
 
 func CalculateDensity1(x []float64) float64 {
 	val := x[0] / x[1]
-	return val
+	return math.Round(val*100) / 100
 }
 
 func CalculateDensity2(x []float64) float64 {
 	val := x[0] * x[1]
-	return val
+	return math.Round(val*100) / 100
 }
 
 func CalculateDensity3(x []float64) float64 {
 	val := x[0] / x[1]
-	return val
+	return math.Round(val*100) / 100
 }
 
 const DENSITY_EQUATION_DESCRIPTION = "The density of a substance is the mass of a substance divided by the volume of the substance."

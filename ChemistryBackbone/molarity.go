@@ -1,5 +1,7 @@
 package ChemistryBackbone
 
+import "math"
+
 var MolarityEquations = EquationSection{
 	Id:   "Molarity",
 	Name: "Molarity",
@@ -42,17 +44,17 @@ var MolarityEquations = EquationSection{
 
 func CalculateMolarity1(x []float64) float64 {
 	val := x[0] / x[1]
-	return val
+	return math.Round(val*100) / 100
 }
 
 func CalculateMolarity2(x []float64) float64 {
 	val := x[0] * x[1]
-	return val
+	return math.Round(val*100) / 100
 }
 
 func CalculateMolarity3(x []float64) float64 {
 	val := x[0] / x[1]
-	return val
+	return math.Round(val*100) / 100
 }
 
 const MOLARITY_EQUATION_DESCRIPTION = "The molarity of a substance is the number of moles of a substance divided by the mass of the substance."

@@ -14,13 +14,13 @@ struct SettingsScreen: View {
                 VStack {}
                     .padding(.vertical)
                 
-                Text("[Contact Support](https://rjsappdev.wixsite.com/construction/general-5)")
+                Text("[Contact Support](https://rjsappdev.wixsite.com/chemistryequations/general-5)")
                     .modifier(RoundedBorderView())
                 
-                Text("[Privacy Policy](https://rjsappdev.wixsite.com/construction/privacy-policy)")
+                Text("[Privacy Policy](https://rjsappdev.wixsite.com/chemistryequations/privacy-policy)")
                     .modifier(RoundedBorderView())
                 
-                Text("[EULA](https://rjsappdev.wixsite.com/construction/eula)")
+                Text("[EULA](https://rjsappdev.wixsite.com/chemistryequations/eula)")
                     .modifier(RoundedBorderView())
             }
             

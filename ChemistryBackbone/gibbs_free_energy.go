@@ -1,5 +1,7 @@
 package ChemistryBackbone
 
+import "math"
+
 var GibbsFreeEnergyEquations = EquationSection{
 	Id:   "GibbsFreeEnergy",
 	Name: "Gibbs Free Energy",
@@ -57,22 +59,22 @@ var GibbsFreeEnergyEquations = EquationSection{
 
 func CalculateGibbsFreeEnergy1(x []float64) float64 {
 	val := x[0] - (x[1] * x[2])
-	return val
+	return math.Round(val*100) / 100
 }
 
 func CalculateGibbsFreeEnergy2(x []float64) float64 {
 	val := x[0] + (x[1] * x[2])
-	return val
+	return math.Round(val*100) / 100
 }
 
 func CalculateGibbsFreeEnergy3(x []float64) float64 {
 	val := (x[0] - x[1]) / x[2]
-	return val
+	return math.Round(val*100) / 100
 }
 
 func CalculateGibbsFreeEnergy4(x []float64) float64 {
 	val := (x[0] - x[1]) / x[2]
-	return val
+	return math.Round(val*100) / 100
 }
 
 const GIBBS_FREE_ENERGY_EQUATION_DESCRIPTION = "The Gibbs free energy is the difference between the enthalpy and the entropy of a system at a constant temperature."

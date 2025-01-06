@@ -1,5 +1,7 @@
 package ChemistryBackbone
 
+import "math"
+
 var TemperatureEquations = EquationSection{
 	Id:   "Temperature",
 	Name: "Temperature",
@@ -39,17 +41,17 @@ var TemperatureEquations = EquationSection{
 
 func CalculateTemperature1(x []float64) float64 {
 	val := (x[0] - 32) * 5 / 9
-	return val
+	return math.Round(val*100) / 100
 }
 
 func CalculateTemperature2(x []float64) float64 {
 	val := (x[0] * 9 / 5) + 32
-	return val
+	return math.Round(val*100) / 100
 }
 
 func CalculateTemperature3(x []float64) float64 {
 	val := x[0] + 273.15
-	return val
+	return math.Round(val*100) / 100
 }
 
 const TEMPERATURE_EQUATION_DESCRIPTION = "The temperature of a system is the average kinetic energy of the particles in the system."
